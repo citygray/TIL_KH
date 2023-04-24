@@ -1,4 +1,4 @@
-package java_project_day2;
+package exam_variable;
 
 public class exam_variable {
 
