@@ -2,9 +2,14 @@ package exam_class_basic;
 
 public class Car {
 	//필드정의
-	public int speed;
-	public int gear;
+	private int speed;
+	private int gear;
 	public String color;
+
+	//default 생성자
+	public Car() {
+		this(0,0,"black");
+	}
 	
 	// 전체 필드의 값 대입 - test
 	public Car(int s,int g,String c){
@@ -12,7 +17,28 @@ public class Car {
 		this.gear = g;
 		this.color =c;
 	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		if(speed>0) {
+			this.speed = speed;
+		}else {
+			this.speed = 0;
+		}
+	}
 	
+	public int getGear() {
+		return gear;
+	}
+	public void setGear(int gear) {
+		if(gear>0) {
+			this.gear = gear;
+		}else {
+			this.gear = 0;
+		}
+		
+	}
 	
 	//속도 증가 메서드, s:매개변수
 	public void speedUp(int s) {
