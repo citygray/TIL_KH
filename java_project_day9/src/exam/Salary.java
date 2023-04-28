@@ -63,9 +63,6 @@ public class Salary {
 	
 	
 	public String toString() {
-		
-		//Alll 	| 780000 | 117000 | 156000 | 741000 | 관리자
-		//return getEmpno,getGi(),getSu(),getSe(),getBong(),getGrad();
 		return String.format("%s | %6d | %6d | %6d | %6d | %s",getEmpno(),getGi(),getSu(),getSe(),getBong(),getGrad());
 	}
 	

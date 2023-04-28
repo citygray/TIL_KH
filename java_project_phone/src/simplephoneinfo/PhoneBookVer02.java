@@ -49,6 +49,12 @@ public class PhoneBookVer02 {
 		info.showPhoneInfo();
 	}
 	
+	public static String readSearchData() {
+		System.out.println("검색할 이름은?");
+		System.out.print("이름: ");
+		return input.nextLine(); 
+	}
+	
 	public static void main(String[] args) {
 		int inputMenu;
 		while(true) {

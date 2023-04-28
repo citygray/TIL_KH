@@ -38,6 +38,7 @@ public class SalaryTest {
 				new Salary("B222",450000),
 				new Salary("C333",570000),
 		};
+		
 		for(int i =0;i<salarys.length;i++) {
 			salarys[i].calsAllSalary();
 		}
