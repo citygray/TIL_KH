@@ -19,6 +19,7 @@ public class SmartPhoneTest {
 		for(int i=0;i<sP.length;i++) {
 			System.out.printf("%s [%s]\n",sP[i].getName(),sP[i].getMaker());
 			System.out.printf("가격 : %d\n",sP[i].getPrice());
+			//할인율이 없을 경우
 			if(sP[i].getDiscountRate()!= 0) {
 				System.out.printf("할인가격(%d%%) : %d\n",sP[i].getDiscountRate(), sP[i].calculateDiscount());
 			}

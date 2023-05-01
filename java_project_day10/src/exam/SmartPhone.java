@@ -21,15 +21,12 @@ public class SmartPhone {
 	}
 	
 	SmartPhone(String maker, String name, int price, int discountRate){
-		this.maker = maker;
-		this.name = name;
-		this.price = price;
+		this(maker, name, price);
 		this.discountRate = discountRate;
 	}
 
 	public int calculateDiscount() {
-		//return price - (int)((double)price*(discountRate/100));
-		return price-(price*discountRate)/100;
+		return price-(int)(price*discountRate)/100;
 	}
 	
 	public String getMaker() {
