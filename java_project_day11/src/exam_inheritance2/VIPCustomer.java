@@ -6,14 +6,20 @@ public class VIPCustomer extends Customer{
 	
 	
 	public VIPCustomer() {
-		super.setCustomerGrade("VIP");
-		super.setBonusRadio(0.05);
-		this.saleRatio = 0.1;
+	}
+	
+	public VIPCustomer(String customerID, String customerName,int agentID) {
+		super(customerID,customerName);
+		customerGrade="VIP";
+		bonusRadio = 0.05;
+		saleRatio = 0.1;
+		this.agentID = agentID;
 	}
 
 	//calcPrice 오버라이딩
 	public int calcPrice(int price) {
-		super.setBonusPoint((int)(price * super.getBonusRadio()));
+		//super.setBonusPoint((int)(price * super.getBonusRadio()));
+		bonusPoint += price * bonusRadio;
 		return price - (int)(price*saleRatio);
 	}
 
