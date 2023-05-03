@@ -4,12 +4,12 @@ package simplephoneinfo;
 public class PhoneBookManager {
 	
 	private static final int MAX_CNT = 100;
-	PhoneInfo[] Infos;
+	private PhoneInfo[] infos;
 	private static int totalCount;
 
 	public PhoneBookManager() {
 		totalCount = 0;
-		Infos = new PhoneInfo[MAX_CNT];
+		infos = new PhoneInfo[MAX_CNT];
 	}
 	
 	//이름 입력
@@ -39,7 +39,7 @@ public class PhoneBookManager {
 	//입력된 이름에 index 찾기 
 	public int searchIndex(String name) {
 		for(int i =0;i<totalCount;i++) {
-			if(Infos[i].getName().equals(name) ) {
+			if(infos[i].getName().equals(name) ) {
 				return i;
 			}
 		}
@@ -49,14 +49,19 @@ public class PhoneBookManager {
 
 	//저장 : 이름, 전화번호, 생년월일 정보(PhoneInfo 클래스)를 대상으로 저장의 과정을 진행한다.
 	public void saveInfo() {
-		Infos[totalCount++] = inputData();
+		infos[totalCount++] = inputData();
 	}
 
 	
 	 
 	//검색 
 	public void searchInfo() {
-		Infos[searchIndex(inputNameData())].showPhoneInfo();
+		int dataIdx = searchIndex(inputNameData());
+		if(dataIdx<0) {
+			System.out.println("해당하는 데이터가 존재하지 않습니다. \n");
+		}else {
+			infos[dataIdx].showPhoneInfo();	
+		}
 	}
 	
 	
@@ -65,20 +70,24 @@ public class PhoneBookManager {
 		String name = inputNameData();
 		int deleteIndex =  searchIndex(name);
 		
-		for(int i = 0;i<totalCount;i++) {
-			if(i==deleteIndex) {
-				Infos[i] = Infos[i+1];
-				deleteIndex++;
+		if(deleteIndex<0) {
+			System.out.println("해당하는 데이터가 존재하지 않습니다. \n");
+		}else {
+		
+			for(int i = 0;i<totalCount;i++) {
+				if(i==deleteIndex) {
+					infos[i] = infos[i+1];
+					deleteIndex++;
+				}
 			}
+			System.out.println(name+"님 전화번호가 삭제 되었습니다.");
+			totalCount--;
 		}
-		System.out.println(name+"님 전화번호가 삭제 되었습니다.");
-		totalCount--;
 	}
 	
 	// 모든 리스트 출력
 	public void printAll() {
 		for(int i =0;i<totalCount;i++) {
-			Infos[i].showPhoneInfo();
 		}
 	};
 	

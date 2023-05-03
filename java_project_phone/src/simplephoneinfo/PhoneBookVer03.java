@@ -13,6 +13,7 @@ public class PhoneBookVer03 {
 			MenuViewer.showMenu();
 			inputMenu = MenuViewer.keyboard.nextInt();
 			MenuViewer.keyboard.nextLine(); //nextLine 버퍼처리
+			
 			if(inputMenu==4) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
