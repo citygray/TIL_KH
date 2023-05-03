@@ -3,6 +3,10 @@ package exam_polymorphism;
 class A{
 	int a = 10;
 	
+	void a() {
+		System.out.println("a");
+	}
+	
 	void b() {
 		System.out.println("A");
 	}
@@ -11,7 +15,7 @@ class A{
 class AA extends A{
 	int a = 20;
 	
-	
+		
 	@Override
 	void b() {
 		System.out.println("AA");
@@ -39,28 +43,39 @@ class BB extends A{
 public class ClassTest {
 
 	public static void main(String[] args) {
-		A z = new AA(); //AA객체를 생성하여 A타입의 레퍼런스에 할당한다. 업캐스팅
-		System.out.println(z.a); //슈퍼클래스의 필드 접근
-		z.b(); //슈퍼클래스의 메서드 접근, 단 서브클래스에서 메서드 오버라이딩 되면 오바라이딩된 메서드가 우선 접근
+		
+		A z = new AA();
+		z.a();
+		
+		
+		/*
+		A z = new AA(); 
+		System.out.println(z.a); //10
+		z.b(); //AA
 		//z.c(); //컴파일 오류
 		
-		((AA)z).c(); //서브클래스의 메서드 접근
-		System.out.println(((AA)z).a); //서브클래스의 필드 접근
+		((AA)z).c(); //C
+		System.out.println(((AA)z).a);//20
 		
 		AA a1 = (AA)z;
-		System.out.println(a1.a);
-		a1.c();
+		System.out.println(a1.a);//20
+		a1.c();//C
+		
+		System.out.println("-------");
 		
 		z = new BB();
-		System.out.println(z.a);
-		z.b();
+		System.out.println(z.a);//10
+		z.b();//BB
 		//z.d();
-		((BB)z).d();
-		System.out.println(((BB)z).a);
+		((BB)z).d();//D
+		System.out.println(((BB)z).a);//30
 		
-		BB b1 = (BB)z;//다운캐스팅
-		b1.d();
-		System.out.println(b1.a);
+		BB b1 = (BB)z;
+		b1.d();//D
+		System.out.println(b1.a);//30
+		
+		*/
+		
 		
 
 	}
