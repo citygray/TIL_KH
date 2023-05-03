@@ -14,6 +14,7 @@ public class PhoneBookManager {
 	
 	//이름 입력
 	public static String inputNameData() {
+		System.out.println("검색할 이름을 입력하세요.");
 		System.out.print("이름: ");
 		return MenuViewer.keyboard.nextLine(); 
 	}
@@ -34,6 +35,17 @@ public class PhoneBookManager {
 		return info;
 	}
 	
+	//이름 검색 기능이 검색,삭제에서 중복
+	//입력된 이름에 index 찾기 
+	public int searchIndex(String name) {
+		for(int i =0;i<totalCount;i++) {
+			if(Infos[i].getName().equals(name) ) {
+				return i;
+			}
+		}
+		return -1;// 이름 없을 시 -1 반환
+	}
+	
 
 	//저장 : 이름, 전화번호, 생년월일 정보(PhoneInfo 클래스)를 대상으로 저장의 과정을 진행한다.
 	public void saveInfo() {
@@ -42,32 +54,16 @@ public class PhoneBookManager {
 
 	
 	 
-	//검색 : 이름을 기준으로 데이터를 찾아서 해당 데이터의 정보를 출력해준다.
+	//검색 
 	public void searchInfo() {
-		System.out.println("검색할 이름을 입력하세요.");
-		String name = inputNameData();
-		for(int i =0;i<totalCount;i++) {
-			if(Infos[i].getName().equals(name) ) {
-				System.out.println("-----검색결과----");
-				Infos[i].showPhoneInfo();
-			}
-		}
+		Infos[searchIndex(inputNameData())].showPhoneInfo();
 	}
 	
 	
 	//삭제 : 이름을 기준으로 데이터를 찾아서 삭제의 과정을 진행한다.
 	public void deleteInfo() {
-		System.out.println("삭제할 이름을 입력하세요.");
 		String name = inputNameData();
-		
-		
-		int deleteIndex = 0;
-		for(int i =0;i<totalCount;i++) {
-			if(Infos[i].getName().equals(name) ) {
-				System.out.println(name+"삭제");
-				deleteIndex = i;
-			}
-		}
+		int deleteIndex =  searchIndex(name);
 		
 		for(int i = 0;i<totalCount;i++) {
 			if(i==deleteIndex) {
@@ -75,7 +71,7 @@ public class PhoneBookManager {
 				deleteIndex++;
 			}
 		}
-		
+		System.out.println(name+"님 전화번호가 삭제 되었습니다.");
 		totalCount--;
 	}
 	
