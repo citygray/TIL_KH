@@ -1,28 +1,21 @@
 package exam_interface;
 
-public class Radio implements RemoteControl {
-
+public class SmartTelevision implements RemoteControl, Searchable {
 	private int volume;
-	private String name;
-	private double mhz;
-	
-	Radio(){}
-	
-	Radio(String name,double mhz){
-		this.name = name;
-		this.mhz = mhz;
+
+	@Override
+	public void search(String url) {
+		System.out.println(url+"을 검색합니다.");
 	}
-	
-	
+
 	@Override
 	public void turnOn() {
-		System.out.println("Radio turn On");
+		System.out.println("SmartTv on");
 	}
 
 	@Override
 	public void turnOff() {
-		System.out.println("Radio turn Off");
-
+		System.out.println("SmartTv off");
 	}
 
 	@Override
@@ -35,13 +28,10 @@ public class Radio implements RemoteControl {
 			this.volume = volume;
 		}
 	}
-	
+
 	@Override
 	public int getVolume() {
 		return volume;
 	}
 
-	public void printRF() {
-		System.out.println(this.mhz);
-	}
 }

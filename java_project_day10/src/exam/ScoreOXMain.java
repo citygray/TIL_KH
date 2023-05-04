@@ -11,7 +11,25 @@ public class ScoreOXMain {
  */
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		ScoreOX[] sc = {
+				new ScoreOX(1,"홍길동",new int[]{1,2,1,3,4}),
+				new ScoreOX(2,"김철수",new int[]{1,1,1,1,1}),
+				new ScoreOX(3,"이진희",new int[]{1,2,1,3,1}),
+				new ScoreOX(4,"조현민",new int[]{1,1,1,3,1}),
+				new ScoreOX(5,"최현정",new int[]{1,4,2,5,4})
+		};
+		
+		System.out.println("--------------------------------------------");
+		System.out.println("번호  이름   1  2  3  4  5  점수  등수");
+		System.out.println("--------------------------------------------");
+		
+		ScoreOX.ranking(sc);
+		
+		for(ScoreOX scoreInfo:sc) {
+			scoreInfo.display();
+		}
+		
+		System.out.println("\n전체 맞은 개수 = " + ScoreOX.tot);
 
 	}
 
