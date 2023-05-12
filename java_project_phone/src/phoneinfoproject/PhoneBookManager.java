@@ -8,10 +8,23 @@ public class PhoneBookManager {
 	private PhoneInfo[] infos;
 	private static int totalCount;
 
-	public PhoneBookManager() {
+	//1. private 생성자 만들기
+	private PhoneBookManager() {
 		totalCount = 0;
 		infos = new PhoneInfo[MAX_CNT];
 	}
+	
+	//2. 클래스 내부에 static으로 유일한 인스턴스 생성하기
+	private static PhoneBookManager instance = null;
+	
+	//3. 외부에서 참조할 수 있는 public 메서드 만들기
+	public static PhoneBookManager getInstance() {
+		if(instance == null) {
+			instance = new PhoneBookManager();
+		}
+		return instance;
+	}
+	
 	
 	//이름 입력
 	public static String inputNameData() {

@@ -2,13 +2,12 @@ package phoneinfoproject;
 
 import simplephoneinfo.MenuViewer;
 
-public class PhoneBookVer04 {
+public class PhoneBook {
 	
 	public static void main(String[] args) {
-		
-		PhoneBookManager mng = new PhoneBookManager();
-		 
-		
+		// 4. 싱글톤 인스턴스 사용하는 코드 만들기
+		PhoneBookManager mng = PhoneBookManager.getInstance();
+				
 		int inputMenu;
 		while(true) {
 			MenuViewer.showMenu();
