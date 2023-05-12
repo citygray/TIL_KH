@@ -44,10 +44,10 @@ public class PhoneBookManager {
 		
 		//1. 일반, 2. 대학, 3. 회사
 		switch (inputMenu) {
-		case 1: 
+		case InputMenu.NORMAL: 
 			info = new PhoneInfo(name,phoneNumber);
 			break;
-		case 2: 
+		case InputMenu.UNI: 
 			System.out.print("전공 :");
 			String major = MenuViewer.keyboard.nextLine();
 			
@@ -56,7 +56,7 @@ public class PhoneBookManager {
 			MenuViewer.keyboard.nextLine(); //nextLine 버퍼처리
 			info = new PhoneUnivInfo(name,phoneNumber,major,year);
 			break;
-		case 3: 
+		case InputMenu.COMP: 
 			System.out.print("회사 :");
 			String company = MenuViewer.keyboard.nextLine();
 			info = new PhoneCompanyInfo(name,phoneNumber,company);

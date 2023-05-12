@@ -1,6 +1,6 @@
 package exam_collection_set;
 
-public class Member {
+public class Member implements Comparable<Member>{
 	private String name;
 	private int age;
 	
@@ -9,6 +9,32 @@ public class Member {
 		this.age = age;
 	}
 	
+	
+	
+	public int getAge() {
+		return age;
+	}
+
+
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return String.format("member - (name: %s, age: %d)",name,age);
@@ -30,8 +56,22 @@ public class Member {
 	public int hashCode() {
 		return name.hashCode() + age;
 	}
-	
-	
-	
+
+	@Override
+	public int compareTo(Member obj) {
+		//int r = this.getAge()- obj.getAge(); 
+		/*
+		int r = this.getName().hashCode()- obj.getName().hashCode(); 
+		if(r>0)
+			return 1;
+		else if(r==0)
+			return 0;
+		else 
+			return -1;
+		*/
+		//참조형
+		return this.name.compareTo(obj.name);
+		
+	}
 
 }

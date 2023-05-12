@@ -14,18 +14,18 @@ public class PhoneBook {
 			inputMenu = MenuViewer.keyboard.nextInt();
 			MenuViewer.keyboard.nextLine(); //nextLine 버퍼처리
 			
-			if(inputMenu==4) {
+			if(inputMenu==Menu.EXIT) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
-			}else if(inputMenu==0) {
+			}else if(inputMenu==Menu.LIST) {
 				mng.printAll();
-			}else if(inputMenu==1) {
+			}else if(inputMenu==Menu.INPUT) {
 				//데이터 입력
 				mng.saveInfo();
-			}else if(inputMenu==2) {
+			}else if(inputMenu==Menu.SEARCH) {
 				//데이터 검색
 				mng.searchInfo();
-			}else if(inputMenu==3) {
+			}else if(inputMenu==Menu.DELETE) {
 				//데이터 삭제
 				mng.deleteInfo();
 			}else {
