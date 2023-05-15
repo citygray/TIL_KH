@@ -1,6 +1,6 @@
 package phoneinfoproject;
 
-public class PhoneInfo {
+public class PhoneInfo implements Comparable<PhoneInfo>{
 	private String name;
 	private String phoneNumber;
 		
@@ -31,5 +31,30 @@ public class PhoneInfo {
 	
 	public String showPhoneInfo() {
 		return String.format("name: %s\nphone: %s\n",getName(),getPhoneNumber());
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("name: %s, phoneNumber:%s",name,phoneNumber);
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof PhoneInfo) {
+			PhoneInfo info = (PhoneInfo) obj;
+			if(this.name.equals(info.name)) return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+	
+	@Override
+	public int compareTo(PhoneInfo obj) {
+		return this.name.compareTo(obj.name);
 	}
 }

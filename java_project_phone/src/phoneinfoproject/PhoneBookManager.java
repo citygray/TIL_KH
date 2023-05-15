@@ -1,17 +1,23 @@
 package phoneinfoproject;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import simplephoneinfo.MenuViewer;
 
 public class PhoneBookManager {
 	
 	private static final int MAX_CNT = 100;
-	private PhoneInfo[] infos;
+	//private PhoneInfo[] infos;
+	private Set<PhoneInfo> infos;
 	private static int totalCount;
 
 	//1. private 생성자 만들기
 	private PhoneBookManager() {
 		totalCount = 0;
-		infos = new PhoneInfo[MAX_CNT];
+		//infos = new PhoneInfo[MAX_CNT];
+		infos = new HashSet<PhoneInfo>();
 	}
 	
 	//2. 클래스 내부에 static으로 유일한 인스턴스 생성하기
@@ -71,13 +77,26 @@ public class PhoneBookManager {
 	
 	//이름 검색 기능이 검색,삭제에서 중복
 	//입력된 이름에 index 찾기 
-	public int searchIndex(String name) {
+	public PhoneInfo searchIndex(String name) {
+		/*
 		for(int i =0;i<totalCount;i++) {
 			if(infos[i].getName().equals(name) ) {
 				return i;
 			}
 		}
 		return -1;// 이름 없을 시 -1 반환
+		*/
+		
+		Iterator<PhoneInfo> it = infos.iterator();
+		while(it.hasNext()) {
+			PhoneInfo info = it.next();
+			if(info.getName().equals(name) ) {
+				return info;
+			}
+			
+		}
+		return null;
+		
 	}
 	
 
@@ -88,18 +107,19 @@ public class PhoneBookManager {
 		int inputMenu = MenuViewer.keyboard.nextInt();
 		MenuViewer.keyboard.nextLine(); //nextLine 버퍼처리
 		
-		infos[totalCount++] = inputData(inputMenu);
+		//infos[totalCount++] = inputData(inputMenu);
+		infos.add(inputData(inputMenu));
 	}
 
 	
 	 
 	//검색 
 	public void searchInfo() {
-		int dataIdx = searchIndex(inputNameData());
-		if(dataIdx<0) {
+		PhoneInfo obj = searchIndex(inputNameData());
+		if(obj == null) {
 			System.out.println("해당하는 데이터가 존재하지 않습니다. \n");
 		}else {
-			infos[dataIdx].showPhoneInfo();	
+			System.out.println(obj.showPhoneInfo());
 		}
 	}
 	
@@ -107,28 +127,31 @@ public class PhoneBookManager {
 	//삭제 : 이름을 기준으로 데이터를 찾아서 삭제의 과정을 진행한다.
 	public void deleteInfo() {
 		String name = inputNameData();
-		int deleteIndex =  searchIndex(name);
+		PhoneInfo obj =  searchIndex(name);
 		
-		if(deleteIndex<0) {
+		if(obj == null) {
 			System.out.println("해당하는 데이터가 존재하지 않습니다. \n");
 		}else {
-		
-			for(int i = 0;i<totalCount;i++) {
-				if(i==deleteIndex) {
-					infos[i] = infos[i+1];
-					deleteIndex++;
-				}
-			}
+			infos.remove(obj);
 			System.out.println(name+"님 전화번호가 삭제 되었습니다.");
-			totalCount--;
+//			totalCount--;
 		}
 	}
 	
 	// 모든 리스트 출력
 	public void printAll() {
-		for(int i =0;i<totalCount;i++) {
-			System.out.println(infos[i].showPhoneInfo());
+//		for(int i =0;i<totalCount;i++) {
+//			System.out.println(infos[i].showPhoneInfo());
+//		}
+		
+		Iterator<PhoneInfo> iterator = infos.iterator();
+		while(iterator.hasNext()) {
+			PhoneInfo infor = iterator.next();
+			System.out.println("\t" + infor.toString());
 		}
+		
+		
+		
 	};
 	
 	
