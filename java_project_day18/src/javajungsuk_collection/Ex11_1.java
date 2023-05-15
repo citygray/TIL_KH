@@ -1,4 +1,4 @@
-package exam_collection_list.javajungsuk;
+package javajungsuk_collection;
 
 import java.util.*;
 
