@@ -13,9 +13,9 @@ public class SetInterfaceTest {
 	 * 
 	 * */
 	public static void main(String[] args) {
-		//HashSet <String> set = new HashSet<String>();
+		HashSet <String> set = new HashSet<String>();
 		//LinkedHashSet<String> set = new LinkedHashSet<String>();
-		TreeSet<String> set = new TreeSet<String>();
+		//TreeSet<String> set = new TreeSet<String>();
 		
 		set.add("Milk");
 		set.add("Bread");
