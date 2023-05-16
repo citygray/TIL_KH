@@ -1,6 +1,6 @@
 package phoneinfoproject;
 
-public class PhoneInfo implements Comparable<PhoneInfo>{
+public class PhoneInfo {
 	private String name;
 	private String phoneNumber;
 		
@@ -53,8 +53,5 @@ public class PhoneInfo implements Comparable<PhoneInfo>{
 		return name.hashCode();
 	}
 	
-	@Override
-	public int compareTo(PhoneInfo obj) {
-		return this.name.compareTo(obj.name);
-	}
+	
 }

@@ -32,8 +32,6 @@ public class PhoneBook {
 				System.out.println("멍충아 뭘 입력한거야!");
 			}
 		}
-		
-		
 	}
 
 }
