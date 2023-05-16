@@ -19,15 +19,24 @@ public class FileExample {
 		
 		try {
 			out = new ObjectOutputStream(new FileOutputStream("input.txt"));
+			String str = "";
 			for(int i=0;i<10;i++) {
 				int ranNum = (int)(Math.random()*300)+1;
-				out.write(ranNum);
+				str += ranNum + "\r\n";
+				out.write(str.getBytes());	
 			}
+			
+			System.out.println("input.txt 생성되었습니다.");
 			out.flush();
-		}catch(Exception e) {
-			System.out.println();
+		}catch(IOException io) {
+			io.printStackTrace();
+		}finally {
+			try {
+				if(out!= null) {out.close();}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
-		
 		
 
 	}
