@@ -29,8 +29,9 @@ public class ABC {
 	public static void main(String[] args) {
 		ABC abc = new ABC();
 		abc.print();
-		
-		ABC.C c= abc.new BC().new C();
+		System.out.println("-------------------------------");
+		ABC.BC.C c= abc.new BC().new C();
+		c.print();
 	}
 
 }
