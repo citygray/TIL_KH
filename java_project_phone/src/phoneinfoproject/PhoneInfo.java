@@ -43,7 +43,10 @@ public class PhoneInfo {
 	public boolean equals(Object obj) {
 		if(obj instanceof PhoneInfo) {
 			PhoneInfo info = (PhoneInfo) obj;
-			if(this.name.equals(info.name)) return true;
+			if(this.name.equals(info.name)) {
+				System.out.println("중복된 이름이 있습니다.");
+				return true;
+			};
 		}
 		return false;
 	}

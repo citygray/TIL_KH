@@ -2,9 +2,17 @@ package phoneinfoproject;
 
 import simplephoneinfo.MenuViewer;
 
+
+class InputMenuException extends Exception{
+	public InputMenuException() {
+		super("뭘 입력한거야 멍충아");
+	}
+}
+
+
 public class PhoneBook {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InputMenuException{
 		// 4. 싱글톤 인스턴스 사용하는 코드 만들기
 		PhoneBookManager mng = PhoneBookManager.getInstance();
 				
@@ -28,10 +36,9 @@ public class PhoneBook {
 			}else if(inputMenu==Menu.DELETE) {
 				//데이터 삭제
 				mng.deleteInfo();
-			}else {
-				System.out.println("멍충아 뭘 입력한거야!");
 			}
 		}
+		
 	}
 
 }
