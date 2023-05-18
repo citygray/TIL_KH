@@ -47,7 +47,7 @@ public class PersonExample {
 		} catch (ClassNotFoundException c) {
 			System.out.println(c.getMessage());
 		} catch (IOException i) {
-			//파일의 끝을 지나쳐서 읽으려고 하는 경우나 잘못된 URL을 사용한 경우 발생
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -58,6 +58,7 @@ public class PersonExample {
 				e.printStackTrace();
 			}
 		}
+
 	}
 
 	public static void main(String[] args) {
