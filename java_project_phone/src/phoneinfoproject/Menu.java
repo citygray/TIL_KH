@@ -5,5 +5,8 @@ public interface Menu {
 	//0. 데이터 보기	1. 데이터 입력  2. 데이터 검색  3. 데이터 삭제  4. 프로그램 종료
 	
 	int LIST = 0, INPUT = 1, SEARCH = 2, DELETE = 3, EXIT = 4;
+	
+	//1.일반		2.대학	3.회사
+	int NORMAL = 1, UNI = 2, COMP = 3; 
 
 }

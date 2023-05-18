@@ -44,7 +44,7 @@ public class PhoneInfo {
 		if(obj instanceof PhoneInfo) {
 			PhoneInfo info = (PhoneInfo) obj;
 			if(this.name.equals(info.name)) {
-				System.out.println("중복된 이름이 있습니다.");
+				System.out.println("중복된 이름은 저장되지 않습니다.");
 				return true;
 			};
 		}
