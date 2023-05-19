@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        table{
+            padding:0;
+            border:1px solid black;
+            border-spacing:0px;
+            border-collapse:collapse;
+        }
+        th, td{
+            padding:0;
+            border-bottom:1px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>강좌 소개</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>프로그램명</th>
+                <th>접수시간<br>교육기간</th>
+                <th>교육동</th>
+                <th>교육장소</th>
+                <th>수강료</th>
+                <th>선정방법</th>
+                <th>정원/대기/접수</th>
+                <th>접수상태</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2023 성인기초영어 교육 1기</td>
+                <td>2023-05-15~2023-05-28<br>2023-05-15~2023-05-28</td>
+                <td>평생학습센터</td>
+                <td>제2강의실</td>
+                <td>15000원</td>
+                <td>선착순</td>
+                <td>20/20/0</td>
+                <td><input type="button" value="접수예정"/></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2023 성인기초영어 교육 1기</td>
+                <td>2023-05-15~2023-05-28<br>2023-05-15~2023-05-28</td>
+                <td>평생학습센터</td>
+                <td>제2강의실</td>
+                <td>15000원</td>
+                <td>선착순</td>
+                <td>20/20/0</td>
+                <td><input type="button" value="접수마감"/></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2023 성인기초영어 교육 1기</td>
+                <td>2023-05-15~2023-05-28<br>2023-05-15~2023-05-28</td>
+                <td>평생학습센터</td>
+                <td>제2강의실</td>
+                <td>15000원</td>
+                <td>선착순</td>
+                <td>20/20/0</td>
+                <td><input type="button" value="교육중"/></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <form>
+            <fieldset>
+                <legend>수강 신청서 작성</legend>    
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">인적사항</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label for="name">성명</label></td>
+                            <td><input id="name" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="addr">주소</label></td>
+                            <td><input id="addr" type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>성별</td>
+                            <td>
+                                <input id="man" type="radio" name="sex"/> <label for="man">남자</label>
+                                <input id="woman" type="radio" name="sex"/> <label for="woman">여자</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="class_name">강좌명</label></td>
+                            <td>
+                                <select id="class_name">
+                                    <option>파크골프교실 1</option>
+                                    <option>파크골프교실 2</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="remark">비고</label></td>
+                            <td><textarea id="remark"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="submit" value="신청"/>
+                <input type="reset" value="취소"/>
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+</html>
