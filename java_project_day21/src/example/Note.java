@@ -1,17 +1,42 @@
 package example;
 
-public class Note {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Note implements Serializable{
+	private int noteId;
 	private String name;
-	private String content;
+	//private String content;
+	private ArrayList<String> content = new ArrayList<>();
 	
-	public Note(String name, String content){
+	public Note(String name, ArrayList content,int noteId){
+		this.noteId = noteId;
 		this.name = name;
 		this.content = content;
 	}
 	
+	
+	public int getNoteId() {
+		return noteId;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void showContent() {
+
+		for(String line: content) {
+			System.out.println(line);
+		}
+	}
+
+
 	@Override
 	public String toString() {
-		return "파일명: "+ name+"\n"+content;
+		return noteId+"-"+ name;
 	}
 	
 	@Override
@@ -28,5 +53,7 @@ public class Note {
 	public int hashCode() {
 		return name.hashCode();
 	}
+	
+	
 
 }
