@@ -1,0 +1,20 @@
+@import "psstyle.css";
+
+.contents {
+    margin:30px auto;
+    width:400px;
+    padding:20px;
+    border:1px solid #222;
+    border-radius:5px;        
+  }
+
+  #intro:target {
+    background-color:#0069e0;  /* 배경색 - 파란색 */
+    color:#fff;  /* 글자색 - 흰색 */
+  }
+  #room:target {
+    background-color:#ff9844;  /* 배경색 - 주황색 */
+  }
+  #reservation:target{
+    background-color:#fff8dc;  /* 배경색 - 베이지색 */
+  }
