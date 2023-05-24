@@ -1,5 +1,12 @@
 package phoneinfoproject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -7,6 +14,8 @@ import java.util.Set;
 import simplephoneinfo.MenuViewer;
 
 public class PhoneBookManager implements Menu {
+	static ObjectInputStream  in = null;
+	static ObjectOutputStream out= null;
 
 	private Set<PhoneInfo> infos;
 
@@ -153,6 +162,53 @@ public class PhoneBookManager implements Menu {
 			PhoneInfo infor = iterator.next();
 			System.out.println("\t" + infor.toString());
 		}
+	}
+
+	//전화번호부 정보는 PhoneBook.dat파일로 저장
+	public void savePhoneBook() {
+		try {
+			out = new ObjectOutputStream(new FileOutputStream("PhoneBook.dat"));
+			out.writeObject(infos);
+			out.flush();
+		}catch(IOException e) {
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(out!= null) out.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	// 프로그램이 다시 실행되면 파일에 저장된 데이터를 프로그램상으로 복원
+	@SuppressWarnings("unchecked")
+	public void loadInfos() {
+		File file = new File("PhoneBook.dat");
+		if(file.exists()) {
+			try {
+				in = new ObjectInputStream(new FileInputStream(file));
+				infos = (Set<PhoneInfo>)in.readObject();
+			} catch(ClassNotFoundException e) {
+				System.out.println(e.getMessage());
+			} catch(IOException e) {
+				System.out.println(e.getMessage());
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}finally {
+				try {
+					if(in!= null) in.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}else {
+			System.out.println("작업할 파일이 존재하지 않습니다.");
+		}
+		
 	};
 
 }
