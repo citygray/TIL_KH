@@ -2,10 +2,12 @@ package exam_interface;
 
 public class Example01 {
 
-	public static void test(MyInterface mi) {
+	public static void test(MyInterface mi) {// 매개변수 : 인터페이스의 참조 변수 = 구현 클래스의 주소값 대입
 		mi.print();
 	}
 	public static MyInterface test2() {
+		//익명클래스 : new 부모클래스 또는 인터페이스(){}
+		//익명클래스 선언과 인스턴스생성 동시에
 		MyInterface mi = new MyInterface() {
 			@Override
 			public void print() {
