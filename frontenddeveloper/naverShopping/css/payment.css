@@ -1,0 +1,88 @@
+@import "common.css";
+
+
+/* 컨텐츠 공통 */
+caption{overflow:hidden;width:1px;height:1px;*height:0;padding:0;margin-top:-1px;font-size:0;line-height:0;text-indent:-999999px}
+button{border:0;background:none}
+.thm{font-family:tahoma,geneva,sans-serif}
+.fr{float:right}
+.fl{float:left}
+.w_bg1{background-color:#f3f4f5}
+.point_color{color: #2db400}
+.point_color_green{color: #09aa5c}
+.point_color_blue{color: #009ac7}
+.point_color_blue2{color: #007cd9}
+.mask{position:absolute;top:0;left:0;z-index:20;width:100%;height:100%;background:url(../../../../img/service/front/order/img_ordersheet/sp_m_mask.png) no-repeat}
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}
+
+/* layout */
+body{background-color:#F3F4F5;}
+#wrap{min-width:1130px;}
+#container{width:1100px;margin:0 auto;}
+
+
+/* header */
+header{width:100%;min-width: 1130px;margin-bottom:30px;background:url("../images/payment/bg_header.jpg") repeat-x;}
+.hd_inner{width:1130px;height:110px;margin:0 auto;}
+.gnb{width:100%;height:36px;margin-bottom:2px;}
+.gnb:after{content:"";display: inline-block;clear:both;}
+.gnb_icon{background-image: url("../images/payment/sp_m_header.png"); display:inline-block;overflow: hidden;line-height: 1000px;}
+.gnb_icon2{background-image: url("../images/payment/sp_gnb_v15.png"); display:inline-block;overflow: hidden;line-height: 1000px;margin-top:11px;}
+.gnb .logos{float:left;position: relative;}
+.log_naver{position: absolute;top:11px;}
+.log_naver span{width:47px;height:18px;background-position:0 0;}
+.log_shop{position: absolute;top:11px; left:50px}
+.log_shop span{width:53px;height:15px;background-position:0 -20px;}
+.gnb_list .gnb_cart{float:left;padding-left:18px;}
+.gnb_cart .gnb_icon{width:17px;height:16px;background-position:0 -40px;position: absolute;left: 0;top:10px;}
+.gnb .gnb_list{float:right;}
+.gnb_list ul{padding-left:10px;float:left}
+.gnb_list li{float:left;position: relative;line-height:36px;}
+.gnb_list a{font-size:11px;color:#fff;text-decoration:none;line-height:37px;position:relative;padding-left:16px;}
+.gnb_profile{padding-right:10px;background: url("../images/payment/ico_arrow_wh.gif") center right no-repeat;}
+.gnb_profile a{padding-left:20px;}
+.gnb_profile .gnb_name{padding-left:10px}
+.gnb_profile #gnb_profile_img{width:26px;height: 26px;border-radius: 50%;padding-left:1px;padding-top:1px;}
+.gnb_profile .gnb_profile_mask{position: absolute;top: -8px;left: -0px;z-index: 1;width: 28px;height: 28px;background-position: -260px -60px;background-image: url("../images/payment/sp_gnb_v15.png"); }
+.gnb_count{background-color:#13A841;border-radius:30%;height:13px;line-height:13px;padding:1px 2px;position:absolute;font-weight: bold;color:#fff;background-position:center right;text-align: center;right:-10px;top:-13px;}
+.gnb_notice .gnb_icon2{width:17px;height:19px;background-position:-220px -140px;margin-top:8px;}
+.gnb_letter .gnb_icon2{width:22px;height:16px;background-position:-238px -141px;}
+.gnb_letter .gnb_count{right:-10px;top:-13px;}
+.gnb_service .gnb_icon2{width:18px;height:18px;background-position:-261px -140px;}
+.hd_logo .gnb_icon{width:90px;height:33px;background-position:0 -100px;margin-top:20px;}
+
+
+
+
+/* order_header */
+.order_header:after{overflow: hidden;content:"";display:inline-block;clear:both;}
+.order_payment,.pro,.pro1,.pro2,.pro3{background:url("../images/payment/spr_product_text.png") no-repeat;}
+.order_header .process li~li {background:url("../images/payment/spr_orderpage.png") no-repeat;}
+.order_header .process{float:right;margin-top:4px;height:13px}
+.order_header .order_payment{float:left;width:89px;height:20px}
+.order_header .process li{float:left}
+.order_header .process li~li{margin-left:15px;padding-left:20px;background-position:-344px -50px}
+.order_header .pro{display:block;width:49px;height:13px;background-position:-60px -25px}
+.order_header .pro2{display:block;width:58px;height:13px;background-position:-60px -40px}
+.order_header .pro3{display:block;width:24px;height:13px;background-position:-60px -55px}
+.order_header .on .pro{background-position:0 -25px}
+.order_header .on .pro2{background-position:0 -40px}
+.order_header .on .pro3{background-position:0 -55px}
+
+
+/* orderForm */
+.order_content{margin-top:25px;}
+.order_content .top_line{display:block;width:1098px;height:4px;background-position:-1px 0;background:url("../images/payment/spr_cutting_line.png") no-repeat 0 0;}
+
+
+
+/* 상품정보 */
+.tb_products{width:100%;border:0;text-align:center}
+.tb_products td{border:0;word-wrap:break-word;word-break:break-all}
+.tb_products tbody,
+/* .tb_products tfoot{background:url("../images/payment/bg_orderpage.png") repeat} */
+.tb_products thead th{padding:24px 0 20px;border:0;font-weight:normal;border-bottom:1px solid #eee;color:#000}
+.tb_products thead .col_price{padding-right:20px}
+.tb_products .point_plus th {
+	border-bottom: none;
+}
