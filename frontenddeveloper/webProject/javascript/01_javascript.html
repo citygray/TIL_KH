@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+    <script src="js/01_javascript.js"></script>
+</head>
+<body>
+    <h1 id="heading">1)inline방식</h1>
+    <button onclick="window.alert('인라인 알림창 출력')">인라인 알림창 출력</button>
+    <button onclick="console.log('인라인 콘솔 출력')">인라인 콘솔 출력</button>
+    <button onclick="btnClick()">인라인 사용자 정의 함수 호출</button>
+
+    <button onclick="btnClick2()">버튼2</button>
+    <script>
+        function btnClick(){
+            window.alert("사용자 정의 함수 호출 ");
+        }
+
+        let heading = document.querySelector("#heading");
+        heading.onclick = function(){
+            heading.style.color = "red";
+        }
+    </script>
+
+
+    
+</body>
+</html>
