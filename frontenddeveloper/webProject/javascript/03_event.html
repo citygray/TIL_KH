@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline - Event</title>
+    <style>
+        .wrap{margin-bottom:200px;}
+        .answer{display: none;}
+        #item{position: relative;}
+        .over{position:absolute;left:10px; top:600px;}
+        #desc{display: none;}
+        .test_box{width:100px;height:100px;background-color: bisque;}
+    </style>
+    <script>
+
+    function answerCheck(data){
+            let answer = document.getElementById("answer");
+            answer.innerHTML = data;
+    }
+
+    function juminFocus(){
+        let jumin1 = document.getElementById("jumin1").value;
+        if(jumin1.length==6){
+            document.getElementById("jumin2").focus();
+        }
+    }
+        
+    </script>
+
+    <script src="js/event.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <h1>넌센스 퀴즈</h1>
+        <ul>
+            <li onmouseover="answerCheck('꿈을 꾸기 위해')">우리가 수업시간에 자는 이유는?</li>
+            <li onmouseover="answerCheck('교도소')">도둑이 없는 도둑마을은 어딘가?</li>
+        </ul>
+        <div id="answer">정답 보여주기</div>
+
+        <h1>주민등록번호 입력</h1>
+        <form name="form3" id="form3">
+            <label>주민등록번호: </label>
+            <input type="text" name="jumin1" id="jumin1" maxlength="6" onkeyup="juminFocus()"/>
+            <label>-</label>
+            <input type="password" name="jumin2" id="jumin2" maxlength="1" />******
+        </form>
+
+        <h1>Dom을 이용한 이벤트 처리</h1>
+        <div id="item">
+            <img src="../basic/images/pic1.jpg" alt=""/>
+            <button class="over" id="btn_open">상세 설명 보기</button>
+            <div id="desc" class="detail">
+                <h2>등심 붓꽃</h2>
+                <p>북아메리카 원산으로 각지에서 관상초로 흔히 심고 있는 귀화식물이다.</p>
+                <button id="btn_close">상세 설명 닫기</button>
+            </div>
+        </div>
+
+        <h1>표준 이벤트 모델</h1>
+        <pre>
+            - w3c (html,css,js)에서 
+            - 북아메리카 원산으로 각지에서 관상초로 흔히 심고 있는 귀화식물이다.
+        </pre>
+
+        <div id="test" class="test_box"></div>
+    </div>
+    
+</body>
+</html>
