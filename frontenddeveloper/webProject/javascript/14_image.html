@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image 객체</title>
+    <style>
+    /** 목록 정의 초기화 및 목록 박스 좌측 배치 */
+    .thumbnail {
+        padding: 0; 
+        margin: 0; 
+        list-style: none;
+        width: 120px; 
+        float: left;
+    }
+    /** 목록의 각 항목에 대한 크기 및 여백 설정 */
+    .thumbnail li {
+        width: 100px; 
+        height: 100px; 
+        padding: 5px 10px;
+    }
+    /** 썸네일 이미지의 크기 설정 */
+    .thumbnail img {
+        width: 100px; 
+        height: 100px;
+        cursor: pointer;
+    }
+    /** 큰 이미지 영역의 배치와 크기, 여백 설정 */
+    .view {
+        float:left; width: 520px; height: 340px;
+    }
+    .newView{
+        clear:both; margin-top:20px; padding: 5px 0;
+    }
+    /** 큰 이미지의 크기 설정 */
+    .view img, p img {
+        width:500px; height: 320px; margin: 5px 10px;
+    }
+    </style>
+    <script src="js/14_image.js"></script>
+</head>
+<body>
+    <ul class="thumbnail">
+        <li><img src="images/1.jpg" class="imageChoice"/></li>
+        <li><img src="images/2.jpg" class="imageChoice"/></li>
+        <li><img src="images/3.jpg" class="imageChoice"/></li>
+    </ul>
+    <div class="view">
+        <img src="images/1.jpg" id="target"/>
+    </div>
+
+    <div class="newView">
+        <h3>1초 간격으로 새로운 이미지 보여주기</h3>
+        <p>
+            <img src="images/1.jpg" id="imgView"/>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window.html</title>
+    <style type="text/css">
+        a{text-decoration:none;}
+    </style>
+    <script src="js/11_window.js"></script>
+</head>
+<body>
+    <h1>window 객체</h1>
+    <h3>open 메소드 확인</h3>
+    <div>
+        <a href="javascript:open1()">새창 열기</a>
+        <br/>
+        <a href="#" onclick="open2()">팝업 창열기(1)</a>
+        <br/>
+
+        <!--파라미터를 포함한 함수의 호출-->
+        <a href="#" onclick="open3('http://www.naver.com')">팝업 창열기(2-1)</a>
+        <br/>
+        <a href="#" onclick="open3('http://www.daum.com')">팝업 창열기(2-2)</a>
+        <br/>
+
+        <!--사용자로 하여금 이동  url을 직접 입력-->
+        <button type="button" onclick="open_window()">Open a page with new window</button>
+        <button type="button" onclick="win.close()">Close the window</button>
+    </div>
+</body>
+</html>
