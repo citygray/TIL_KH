@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="js/17_form_add.js"></script>
+    <style>
+        form{width:500px;}
+        form>fieldset>div{border-bottom:1px dotted #ddd;padding:10px 0;}
+        form>fieldset>div>label{display: inline-block;width:70px;}
+        div.inner{display: inline-block;}
+        .btn_area{text-align: center;margin:20px 0 10px;border:none;}
+    </style>
+</head>
+<body>
+    <form name="form1" id="form1">
+        <fieldset>
+            <legend>회원가입</legend>
+            <div>
+                <label for="user_name">이름</label>
+                <input type="text" id="user_name"/>
+            </div>
+            <div>
+                <label for="gender">성별</label>
+                <div class="inner">
+                    <input type="radio" name="gender" id="man" value="man"/><label for="man">남자</label>
+                    <input type="radio" name="gender" id="woman" value="woman"/><label for="woman">여자</label>
+                </div>
+            </div>
+            <div>
+                <label for="job">직업</label>
+                <select id="job">
+                    <option>학생</option>
+                    <option>백수</option>
+                    <option>개발자</option>
+                </select>
+            </div>
+            <div>
+                <label for="hobby">취미</label>
+                <div class="inner">
+                    <input type="checkbox" name="hobby" id="hobby1" value="hobby1" /><label for="hobby1">걷기</label>
+                    <input type="checkbox" name="hobby" id="hobby2" value="hobby2"/><label for="hobby2">축구</label>
+                    <input type="checkbox" name="hobby" id="hobby3" value="hobby3"/><label for="hobby3">농구</label>
+                    <input type="checkbox" name="hobby" id="hobby4" value="hobby4"/><label for="hobby4">야구</label>
+                    <input type="checkbox" name="hobby" id="hobby5" value="hobby5"/><label for="hobby5">여행</label>
+                    <input type="checkbox" name="hobby" id="hobby6" value="hobby6"/><label for="hobby6">영화</label>
+                </div>
+            </div>
+            <div class="btn_area">
+                <input type="submit" value="가입"/>
+                <input type="reset" value="초기화"/>
+            </div>
+            
+        </fieldset>
+    </form>
+</body>
+</html>
