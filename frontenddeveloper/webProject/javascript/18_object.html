@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*Object 생성자를 이용하는 방법*/
+        let user = new Object();
+        user.name ="홍길동";
+        user.hobby = ["여행","영화보기"];
+        user.greeting = function(){
+            document.write("안녕하세요,저는 "+user.name+ "<br/>");
+        }
+        user.print = function(){
+            document.write("이름: "+this.name + "<br/>");
+            document.write("취미: "+this.hobby.join(",") + "<br/>");
+        }
+        document.write("<h3>Object 생성자를 이용하는 방법</h3>")
+        user.greeting();
+        user.print();
+
+        /*객체 리터럴 이용하는 방법*/
+        let user1 ={ 
+            name : "홍길동",
+            hobby : ["여행","영화보기"],
+            greeting : function(){
+            document.write("user1 : 안녕하세요,저는 "+user.name+ "<br/>")
+            }
+        }
+        user1.greeting();
+
+        /*생성자 함수를 이용하는 방법*/
+        function User2(name,hobby){
+            this.name = name;
+            this.hobby = hobby;
+            this.greeting = function(){
+                document.write("user2 : 안녕하세요, 내 이름은"+ this.name+ "<br/>");
+            }
+        }
+        //user 객체를 생성하는 데 new을 활용해 생성자 함수 호출
+        let user2 = new User2("김난이",["드라마보기","멍때리기"]);
+        user2.greeting();
+
+        /*ES6 class 사용*/
+        class User3{
+            constructor(name,hobby){
+                this.name = name;
+                this.hobby = hobby;
+            }
+            greeting(){
+                document.write("안녕하세요~ 나는 "+this.name+"입니다"+ "<br/>");
+                document.write("제 취미는 "+this.hobby.join(",")+"입니다"+ "<br/>");
+            }
+            
+        }
+        let user3 = new User3("하승수",["애 보기","게임"]);
+        user3.greeting();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

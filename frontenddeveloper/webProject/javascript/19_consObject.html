@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>consObject</title>
+    <script type="text/javascript">
+    // [요구사항] 
+    //        1. PhoneInfo 라는 이름으로 클래스 생성
+    //        2. 버튼 클릭 시 입력받은 이름과 전화번호로 필드 초기화
+    //        3. 메서드를 통해 이름과 전화번호 출력
+
+    class PhoneInfo{
+        constructor(name,phoneNumber){
+            this._name = name;
+            this._phoneNumber = phoneNumber;
+        }
+        set name(name){
+            this._name = name;
+        }
+        set phoneNumber(phoneNumber){
+            this._phoneNumber = phoneNumber;
+        }
+
+        toString = function(){
+            let data = "이름 : "+ this.name + " ,전화번호 : "+ this.phoneNumber;
+            return data;
+        }
+
+        print(){
+            let str = "<p>이름: "+this.name+"</p>";
+            str += "<p>번호: "+this.phoneNumber+"</p>";
+            document.getElementById("resultArea").innerHTML = str;
+        }
+    }
+    window.onload = function(){
+        document.getElementById("showBtn").addEventListener("click",function(){
+            let name = document.getElementById("name").value;
+            let phoneNumber = document.getElementById("phoneNumber").value;
+
+            let info = new PhoneInfo(name,phoneNumber);
+            //info.print();
+
+            console.log(info);
+            document.getElementById("resultArea").innerHTML = info.toString();
+        });
+    }
+    
+    </script>
+</head>
+<body>
+    
+    <form name="form">
+        <div class="input_group">
+            <label class="nameStyle">이름</label>
+            <input type="text" name="name" id="name" maxlength="10"/>
+        </div>
+        <div class="input_group">
+            <label>전화번호</label>
+            <input type="text" name="phoneNumber" id="phoneNumber"/>
+        </div>
+        <div class="input_group">
+            <button type="button" id="showBtn">확인</button>
+        </div>
+        <div class="input_group resultStyle" id="resultArea"></div>
+    </form>
+</body>
+</html>
