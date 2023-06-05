@@ -54,7 +54,44 @@ window.onload = function(){
     document.getElementById("inputPno").addEventListener("keyup",function(){
         const span = document.getElementById("inputPnoResult");
 
-        //주민등록번호 
+        //주민등록번호 정규식
+        // 생년월일(6) - 고유번호(7)
+        /* const regExp = /^\d{6}\-\d{7}$/; */ //연도(2) 월(2) 일(2)
+
+        //상세한 정규 표현식
+        const regExp = /^\d{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])\-[1-4]\d{6}$/;
+
+        // (): 포획 괄호, 괄호 내부에 대응되는 부분을 찾아서 기억함
+        // | : 또는
+
+        // 월
+        // 01 ~ 09 -> 0[1-9]
+        // 10 ~ 12 -> 1[0-2]
+
+        // (0[1-9]|1[0-2]) : 괄호 내 | 기호를 기준으로 구분되며
+        // 0이 먼저 입력된 경우 다음 자리는 1~9
+        // 1이 먼저 입력된 경우 다음 자리는  0~2
+
+        // 일
+        // 01 ~ 09 -> 0[1-9]
+        // 10 ~ 19 -> 1[0-9]
+        // 20 ~ 29 -> 2[0-9]
+        // 30 ~ 31 -> 3[0-1]
+
+        //요소.classList : 요소가 가지고 있는 클래스를 배열로 반환
+        //요소.classList.remove("클래스명") : 요소의 특정 클래스 제거
+        //요소.classList.add("클래스명") : 요소의 특정 클래스 추가
+
+        // 유효성 검사
+        if( regExp.test(this.value)){
+            span.innerHTML = "유효한 주민등록번호 형식입니다.";
+            span.classList.remove("error"); //error 클래스 제거
+            span.classList.add("confirm"); //confirm 클래스 제거
+        } else{
+            span.innerText ="주민등록번호 형식이 유효하지 않습니다.";
+            span.classList.remove("confirm");
+            span.classList.add("error");
+        }
         
     })
 
