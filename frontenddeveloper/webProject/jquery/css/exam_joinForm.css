@@ -1,0 +1,5 @@
+#join {width:620px;}
+#join fieldset{padding:10px 0;}
+#join fieldset >div {border-bottom:1px solid gray;padding:5px 10px;}
+#join .left_label{width:120px;display:inline-block;}
+#join fieldset >div.btn_area{border:none;text-align: center;padding-top:10px;}
