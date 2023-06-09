@@ -57,4 +57,42 @@ $(function(){
         }
         $("#resultArea").text(result);
     })
+
+    $("#plusBtn").on("click",function(){
+        const pattern = /[^\d]+/g;
+        let temp, total = 0;
+
+        let number3 = $("#number3").val();
+        if(number3.replace(/\s/g,"")==""|| pattern.test(number3)){
+            alert("첫번째 숫자를 입력해주세요.");
+            $("#number3").val("");
+            $("#number3").focus();
+            return;
+        }
+
+
+        let number4 = $("#number4").val();
+        if(number4.replace(/\s/g,"")==""|| pattern.test(number4)){
+            alert("두번째 숫자를 입력해주세요.");
+            $("#number4").val("");
+            $("#number4").focus();
+            return;
+        }
+
+        number3 = parseInt(number3);
+        number4 = parseInt(number4);
+
+        if(number3<number4){
+            temp = number3;
+            number3 = number4;
+            number4 = number3;
+        }
+
+        for(let i=1;i<=number4;i++){
+            total +=number3;
+        }
+
+        $("#area").val(total);
+
+    })
 });

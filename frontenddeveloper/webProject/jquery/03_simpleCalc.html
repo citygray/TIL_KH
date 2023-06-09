@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SimpleCalc</title>
     <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/simpleCals.js"></script>
 </head>
 <body>
@@ -22,7 +23,13 @@
     </form>
 
     <h1>덧셈으로 곱셈으로 표현</h1>
-    <form name="toplus"
+    <form name="toplus" id="toplus">
+        <p>곱셈을 실행할 두 수를 입력해주세요.</p>
+        <input type="text" name="number3" id="number3" placeholder="숫자입력"/><br>
+        <input type="text" name="number4" id="number4" placeholder="숫자입력"/><br>
+        <button tyoe="button" id="plusBtn">덧셈을 곱셈으로 표현</button><br>
+        <input type="text" name="area" id="area" placeholder="결과출력" readonly/>
+    </form>
 
 </body>
 </html>
