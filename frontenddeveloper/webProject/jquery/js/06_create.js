@@ -32,10 +32,14 @@ $(function(){
     $("#print").on("click",function(){
         let img = $("<img>").attr("src","images/page1.jpg").addClass("new_img");
 
-        let button = $("<button>").text("이미지 삭제").addClass("btn_remove").on("click",function(){
+        let button = $("<button>").text("이미지 삭제").on("click",function(){
             //console.log("click 이벤트 add")
             $(".new_img").remove();
             $(this).remove();
+        });
+        button.attr({
+            "type" : "button",
+            "class":"btn_remove"
         });
         $("#result").append(img).append(button);
         
