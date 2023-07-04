@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book>
+		<title>곰세마리</title>
+		<author>아빠곰</author>
+		<publisher>웅이출판</publisher>
+	</book>
+	<book>
+		<title>부의 추월차선</title>
+		<author>엠제이 드마코</author>
+		<publisher>토드</publisher>
+	</book>
+	<book>
+		<title>세이노의 가르침</title>
+		<author>세이노</author>
+		<publisher>데이원</publisher>
+	</book>
+</books>

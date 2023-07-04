@@ -1,0 +1,23 @@
+{
+	"school":{
+		"subject":[
+			{
+				"title": "나의 하루 일과(교육원)",
+				"time":"매주 월~금 오전9:00~ 오후 18:00",
+				"teacher":"최선영"
+			},
+			{
+				"title": "퇴근",
+				"time":"오후 18:00",
+				"teacher":"no teacher!"
+			},
+			{
+				"title": "육아!",
+				"time":"매일 오전19:00~ 오전 7:00",
+				"teacher":"no teacher! yes mom"
+			}
+			
+		]
+		
+	}
+}

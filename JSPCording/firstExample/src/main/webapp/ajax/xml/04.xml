@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<school>
+	<subject>
+		<title>Javascript/frontend</title>
+		<time>매주 월~금 오전 9:00~13:30</time>
+		<teacher>최선영</teacher>
+	</subject>
+	<subject>
+		<title>Java/backend</title>
+		<time>매주 월~금 오후 14:00~18:00</time>
+		<teacher>최선영</teacher>
+	</subject>
+	<subject>
+		<title>after school/자습</title>
+		<time>매주 월~금 오후 19:00~21:00</time>
+		<teacher></teacher>
+	</subject>
+</school>
