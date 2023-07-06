@@ -17,9 +17,141 @@
 		<!--[if lt IE 9]>
 		<script src="../js/html5shiv.js"></script>
 		<![endif]-->
+		
+		<!-- 공통 css -->	
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/comment.css" />
+		
+		<!-- jQuery Framework 참조하기 -->
+		<script src="../js/jquery-3.7.0.min.js"></script>
+		 
+		<!-- 사용자 스크립트 블록 --> 
+		<script type="text/javascript"> 
+		//새로운 글을 화면에 추가하기 위한 함수
+		let num = 0; //전역변수
+		
+		//addNewItem(글번호,작성자이름, 덧글내용,작성일시)
+		function addNewItem(num, writer, content, datetime) {
+			let new_li = $("<li>");
+			new_li.attr("data-num", num);
+			new_li.addClass("comment_item");
+
+			let writer_p = $("<p>");
+			writer_p.addClass("writer");
+
+			let name_span = $("<span>");
+			name_span.addClass("name");
+			name_span.html(writer + "님");
+
+			let date_span = $("<span>");
+			date_span.html(" / " + datetime + " ");
+
+			let del_input = $("<input>");
+			del_input.attr({"type" : "button", "value" : "삭제하기"});
+			del_input.addClass("delete_btn");
+
+			let content_p = $("<p>");
+			content_p.html(content);
+
+			writer_p.append(name_span).append(date_span).append(del_input);
+			new_li.append(writer_p).append(content_p);
+			$("#comment_list").append(new_li);
+		} //addNewItem 함수 종료.
+		
+		//작성자/댓글 내용 초기화 함수
+		function dateReset(){
+			$("#user_name").val("");
+			$("#comment").val("");
+			$("#user_name").focus();
+		}
+		
+		$(function() {
+			let maxNumber = 0
+			$.get("../ajax/comment/comment_list.json", "", function(data) {
+				//let item = data.comment.item;
+				for(let i=0; i < data.comment.item.length; i++ ){
+					num = data.comment.item[i].num;
+					let writer = data.comment.item[i].writer;
+					let content = data.comment.item[i].content;
+					let datetime = data.comment.item[i].datetime;
+					addNewItem(num, writer, content, datetime); 
+				}
+				num = data.comment.item[0].num;
+			}).fail(function() {
+				alert("덧글 목록을 불러오는데 실패하였습니다. 잠시후에 다시 시도해 주세요.");
+			});
+			
+			/** 덧글 내용 저장 이벤트 */
+			$("#comment_form").submit(function() {
+				// 작성자 이름에 대한 입력여부 검사
+				if ($("#user_name").val().replace(/\s/g,"")=="") {
+					alert("작성자를 입력해 주세요.");
+					$("#user_name").val("");
+					$("#user_name").focus();
+					return false;
+				}
+
+				// 내용에 대한 입력여부 검사
+				if ($("#comment").val().replace(/\s/g,"")=="") {
+					alert("댓글 내용을 입력해 주세요.");
+					$("#comment").val("");
+					$("#comment").focus();
+					return false;
+				}
+
+				++num;
+				console.log(num);
+				let writer = $("#user_name").val();
+				let content = $("#comment").val();
+				let datetime = new Date().toLocaleString();
+				
+				// 저장 결과를 새로운 목록으로 출력하기 위해서 함수 호출
+				addNewItem(num, writer, content, datetime);
+				dataReset();
+				
+				return false;
+			});
+
+			/** 삭제 버튼 클릭시에 항목 삭제하도록 "미리" 지정 */
+			$(document).on("click", ".delete_btn", function() {
+				if (confirm("정말 선택하신 항목을 삭제하시겠습니까?")) {
+					let target = $(this).parents(".comment_item");
+					target.remove();  // 선택 대상과 하위 요소를 삭제. 
+					//target.empty(); // 선택된 요소의 하위요소들만 제거
+					target.removeClass();
+				}
+			});
+		});
+		</script>
 	</head>
 	<body>
-		
+		<div id="container">
+			<h1 class="title">jQuery Comment</h1>
+			<div id="comment_write">
+				<form id="comment_form">
+					<div>
+						<label for="user_name">작성자</label>
+						<input type="text" name="user_name" id="user_name"/>
+						<input type="submit" value="저장하기"/>
+					</div>
+					<div>
+						<label for="comment">덧글 내용</label>
+						<textarea name="comment" id="conmment"></textarea>
+					</div>
+				</form>
+			</div>
+			<ul id="comment_list">
+				<!-- 여기에 동적 생성요소가 들어가게 됩니다. -->
+				<li id="item-template" class="comment_item">
+					<p class="writer">
+						<span class="item-name"></span>
+						<span class="item-date"></span>
+						<input type="button" value="삭제하기" class="delete_btn" />
+					</p>
+					<p class="item-content"></p>	
+				</li>
+			</ul>
+		</div>
 	</body>
 </html>
 

@@ -18,4 +18,14 @@
   	<servlet-name>firstServlet</servlet-name>
   	<url-pattern>/first</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>calcServlet2</servlet-name>
+  	<servlet-class>com.example.CalcServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>calcServlet2</servlet-name>
+  	<url-pattern>/calcServlet2</url-pattern>
+  </servlet-mapping>
 </web-app>
